@@ -1,5 +1,3 @@
-require 'rbconfig'
-HOST_OS = RbConfig::CONFIG['host_os']
 source 'https://rubygems.org'
 gem 'rails', '3.2.6'
 
@@ -28,17 +26,9 @@ group :development do
   gem "guard-rspec", ">= 0.4.3"
   gem "guard-cucumber", ">= 0.6.1"
   
-  case HOST_OS
-    when /darwin/i
-      gem 'rb-fsevent', :group => :development
-      gem 'growl', :group => :development
-    when /linux/i
-      gem 'libnotify', :group => :development
-      gem 'rb-inotify', :group => :development
-    when /mswin|windows/i
-      gem 'rb-fchange', :group => :development
-      gem 'win32console', :group => :development
-      gem 'rb-notifu', :group => :development
+  gem 'rb-fsevent'
+  gem 'growl'
+  
   end
 end
 
