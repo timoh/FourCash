@@ -21,13 +21,13 @@ jQuery(function ($) {
 			
 			date_range_string = [1,2,3,4,5]
 
-			income = [500,0,0,0,0]
+			//income = [500,0,0,0,0]
 
-			expenses = [5,0,10,20,25]
+			//expenses = [0,0,0,20,25]
 
-			balance = [500-5, 500-5, 500-5-10, 500-5-10-20, 500-5-10-20-25]
+			//balance = [500-5, 500-5, 500-5-10, 500-5-10-20, 500-5-10-20-25]
 
-			forecast = [500, 500, 500, 450, 420]
+			//forecast = [500, 500, 500, 450, 420]
 			
 			
 
@@ -42,10 +42,13 @@ jQuery(function ($) {
 			*		forecast (areaspline) TODO TODO TODO !!!!!!!!!
 			*
 			*/
-			/*$.getJSON('api/usermetrics/1', function(data){
+			$.getJSON('charts/arrays.json', function(data){
 				// data
+				
+						console.log(data[0].amount);
+						//income = data.amount
 
-						date_range_string = data.dates
+						/*date_range_string = data.dates
 						console.log(date_range_string);
 
 						income = data.daily_incomes
@@ -58,10 +61,10 @@ jQuery(function ($) {
 						console.log(data.daily_balances);
 
 						forecast = data.daily_balances
-						console.log(data.daily_balances);
+						console.log(data.daily_balances);*/
 
 				drawChart();
-			});*/
+			});
 
 			/* DEFINE THE CHART DRAWING FUNCTION */
 			var drawChart = function(){
@@ -109,7 +112,6 @@ jQuery(function ($) {
 			}
 			
 			
-			drawChart();
 
 	});
 });

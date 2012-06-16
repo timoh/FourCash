@@ -1,4 +1,9 @@
 FourCash::Application.routes.draw do
+  get "charts/index"
+  
+  match "/charts" => "charts#index", :format => 'json'
+  match "/charts/arrays" => "charts#arrays", :format => 'json'
+
   resources :goals
 
   resources :transactions
