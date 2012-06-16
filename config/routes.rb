@@ -1,4 +1,6 @@
 FourCash::Application.routes.draw do
+  resources :transactions
+
   root :to => "home#index"
   resources :users, :only => [ :show, :edit, :update ]
   match '/auth/:provider/callback' => 'sessions#create'
