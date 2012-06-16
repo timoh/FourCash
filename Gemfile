@@ -7,6 +7,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'thin'
 gem 'jquery-rails'
 gem "haml", ">= 3.1.6"
 gem "bson_ext", ">= 1.6.4"
