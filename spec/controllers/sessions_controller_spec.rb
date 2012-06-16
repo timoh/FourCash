@@ -4,9 +4,9 @@ describe SessionsController do
 	
   before(:each) do
 		OmniAuth.config.test_mode = true
-		OmniAuth.config.mock_auth[:twitter] = {
+		OmniAuth.config.mock_auth[:facebook] = {
 		    'uid' => '12345',
-		    'provider' => 'twitter',
+		    'provider' => 'facebook',
 		    'info' => {
 		      'name' => 'Bob'
 		    }
@@ -16,7 +16,7 @@ describe SessionsController do
   describe "GET 'new'" do
     it "redirectes users to authentication" do
       get 'new'
-      assert_redirected_to '/auth/twitter'
+      assert_redirected_to '/auth/facebook'
     end
   end
   
