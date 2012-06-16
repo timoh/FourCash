@@ -1,4 +1,6 @@
 FourCash::Application.routes.draw do
+  resources :goals
+
   resources :transactions
 
   root :to => "home#index"

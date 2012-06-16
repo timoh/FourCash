@@ -1,7 +1,8 @@
-= simple_form_for(@transaction) do |f|
+= simple_form_for(@goal) do |f|
   = f.error_notification
 
   .form-inputs
+    = f.input :title
     = f.input :date
     = f.input :amount
 
