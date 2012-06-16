@@ -45,7 +45,8 @@ jQuery(function ($) {
 			$.getJSON('charts/arrays.json', function(data){
 				// data
 				
-						console.log(data[0].amount);
+						date_range_string = data[0]
+						income = data[1]
 						//income = data.amount
 
 						/*date_range_string = data.dates

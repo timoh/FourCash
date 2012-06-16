@@ -12,19 +12,25 @@ class ChartsController < ApplicationController
   def arrays 
     transactions = Transaction.all
     
-    @arrays = Hash.new
+    @arrays = Array.new
     transactions_array = Array.new
+    dates_array = Array.new
     
+    #CREATE ARRAY OF DATES
     transactions.each do |transaction|
-    
-      transactions_array.push transaction.amount
-    
+      dates_array.push transaction.date
     end 
     
-    @arrays.push transactions_array
+    #CREATE ARRAY OF TRANSACTIONS
+    transactions.each do |transaction|
+      transactions_array.push transaction.amount
+    end 
+    
+    @arrays.push(dates_array)
+    @arrays.push(transactions_array)
     
     respond_to do |format|
-      format.json { render json: @sums }
+      format.json { render json: @arrays }
     end
     
     
