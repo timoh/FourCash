@@ -18,6 +18,7 @@ gem "simple_form"
 gem "will_paginate_mongoid"
 
 group :development do
+  
   gem "haml-rails", ">= 0.3.4"
   gem "guard", ">= 0.6.2"
   gem "guard-bundler", ">= 0.1.3"
@@ -29,10 +30,10 @@ group :development do
   gem 'rb-fsevent'
   gem 'growl'
   
-  end
 end
 
 group :test do
+  
   gem "machinist"  
   gem "database_cleaner", ">= 0.8.0"
   gem "mongoid-rspec", ">= 1.4.4"
@@ -41,6 +42,7 @@ group :test do
   gem "launchy", ">= 2.1.0"
   
   gem "cucumber-rails", ">= 1.3.0", :require => false
+  
 end
 
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
