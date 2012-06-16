@@ -4,7 +4,7 @@ development:
 
 test:
   host: localhost
-  database: four_cash_test
+  database: mydb_test
 
 # set these environment variables on your prod server
 production:
