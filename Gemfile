@@ -19,7 +19,7 @@ gem "simple_form"
 gem "will_paginate_mongoid"
 
 group :development do
-  
+  gem "appconfig"
   gem "haml-rails", ">= 0.3.4"
   gem "guard", ">= 0.6.2"
   gem "guard-bundler", ">= 0.1.3"
