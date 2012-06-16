@@ -1,4 +1,4 @@
-$(function () {
+jQuery(function ($) {
 		var date_range = new Array; //x-axis with Date objects
 		var date_range_string = new Array; //x-axis with strings
 		var income = new Array; /* = [100, 100, 0, 5, 0, 0];*/
@@ -12,6 +12,24 @@ $(function () {
     $(document).ready(function() {
 
 			var all_data;
+			
+			/*
+			
+			MOCK DATA!
+			
+			*/
+			
+			date_range_string = [1,2,3,4,5]
+
+			income = [500,0,0,0,0]
+
+			expenses = [5,0,10,20,25]
+
+			balance = [500-5, 500-5, 500-5-10, 500-5-10-20, 500-5-10-20-25]
+
+			forecast = [500, 500, 500, 450, 420]
+			
+			
 
 			/* GET TRANSACTIONS FROM DB WITH getJSON() 
 			*		NEED TO POPULATE FOLLOWING ARRAYS WITH 
@@ -24,7 +42,7 @@ $(function () {
 			*		forecast (areaspline) TODO TODO TODO !!!!!!!!!
 			*
 			*/
-			$.getJSON('api/usermetrics/1', function(data){
+			/*$.getJSON('api/usermetrics/1', function(data){
 				// data
 
 						date_range_string = data.dates
@@ -43,53 +61,55 @@ $(function () {
 						console.log(data.daily_balances);
 
 				drawChart();
-			});
+			});*/
 
 			/* DEFINE THE CHART DRAWING FUNCTION */
 			var drawChart = function(){
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'chart2'
-            },
-            title: {
-                text: 'Your Cashflow Forecast'
-            },
-            xAxis: {
-                categories: date_range_string
-            },
-            tooltip: {
-                formatter: function() {
-                    var s;
-                    if (this.point.name) { // the pie chart
-                        s = ''+
-                            this.point.name +': '+ this.y +' fruits';
-                    } else {
-                        s = ''+
-                            this.x  +': '+ this.y;
-                    }
-                    return s;
-                }
-            },
-            series: [{
-                type: 'column',
-                name: 'Income',
-                data: income
-            }, {
-                type: 'column',
-                name: 'Expenses',
-                data: expenses
-            }, {
-                type: 'areaspline',
-                name: 'Balance',
-                data: balance
-            }, {
-                type: 'spline',
-                name: 'Forecast',
-                data: forecast
-            }]
-        });
+        		chart = new Highcharts.Chart({
+		            chart: {
+		                renderTo: 'chart'
+		            },
+		            title: {
+		                text: 'Your Cashflow Forecast'
+		            },
+		            xAxis: {
+		                categories: date_range_string
+		            },
+		            tooltip: {
+		                formatter: function() {
+		                    var s;
+		                    if (this.point.name) { // the pie chart
+		                        s = ''+
+		                            this.point.name +': '+ this.y +' fruits';
+		                    } else {
+		                        s = ''+
+		                            this.x  +': '+ this.y;
+		                    }
+		                    return s;
+		                }
+		            },
+		            series: [{
+		                type: 'column',
+		                name: 'Income',
+		                data: income
+		            }, {
+		                type: 'column',
+		                name: 'Expenses',
+		                data: expenses
+		            }, {
+		                type: 'areaspline',
+		                name: 'Balance',
+		                data: balance
+		            }, {
+		                type: 'spline',
+		                name: 'Forecast',
+		                data: forecast
+		            }]
+		        });
 			}
+			
+			
+			drawChart();
 
-
-		});
+	});
 });
